@@ -134,6 +134,7 @@ const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInt
   const repository = 'Estrella-231/cot-paper-review';
   const issuesUrl = 'https://github.com/' + repository + '/issues';
   const api = 'https://api.github.com/repos/' + repository;
+  const readerUrl = 'https://estrella-231.github.io/cot-paper-review/';
   const byId = id => document.getElementById(id);
   const article = document.querySelector('main article') || document.querySelector('article');
   if (!article || !byId('review-panel')) return;
@@ -183,8 +184,7 @@ const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInt
   }
   function openDraft(item, legacyId) {
     const draft = new URL(issuesUrl + '/new');
-    const paragraph = new URL(location.href);
-    paragraph.search = '';
+    const paragraph = new URL(readerUrl);
     paragraph.hash = item.anchor;
     const quote = short(item.quote.replace(/\s+/g, ' ').trim(), 180);
     const marker = '<!-- cot-paper-review anchor=' + item.anchor + ' version=' + item.version + ' -->';
